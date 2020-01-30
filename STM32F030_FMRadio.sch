@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 30 0
+LIBS:STM32F030_FMRadio-cache
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -25,7 +26,7 @@ F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/da
 	1    0    0    -1  
 $EndComp
 $Comp
-L tea5767:TEA5767 U3
+L STM32F030_FMRadio-rescue:TEA5767-tea5767 U3
 U 1 1 5E2C6CF2
 P 7800 3650
 F 0 "U3" H 7850 4100 60  0000 C CNN
@@ -160,12 +161,10 @@ Wire Wire Line
 Wire Wire Line
 	3250 1950 3600 1950
 Wire Wire Line
-	5000 1950 5000 2450
+	5000 1950 5000 2200
 Wire Wire Line
 	4900 2450 4900 1950
 Connection ~ 4900 1950
-Wire Wire Line
-	4900 1950 5000 1950
 Wire Wire Line
 	3950 2150 3950 1950
 Connection ~ 3950 1950
@@ -365,23 +364,6 @@ Wire Wire Line
 Connection ~ 2100 1950
 Wire Wire Line
 	2100 1950 1950 1950
-$Comp
-L Connector:AudioJack3_Ground J3
-U 1 1 5E35D311
-P 9350 3700
-F 0 "J3" H 9070 3576 50  0000 R CNN
-F 1 "AudioJack3_Ground" H 9070 3667 50  0000 R CNN
-F 2 "Connector_Audio:Jack_3.5mm_CUI_SJ-3524-SMT_Horizontal" H 9350 3700 50  0001 C CNN
-F 3 "~" H 9350 3700 50  0001 C CNN
-	1    9350 3700
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	9350 3400 9700 3400
-Wire Wire Line
-	9700 3400 9700 4250
-Wire Wire Line
-	9700 4250 9150 4250
 Wire Wire Line
 	9150 3800 9150 4250
 $Comp
@@ -397,7 +379,6 @@ F 3 "~" H 8850 3800 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8300 4250 9150 4250
-Connection ~ 9150 4250
 $Comp
 L Device:C C6
 U 1 1 5E360950
@@ -459,4 +440,114 @@ Wire Wire Line
 Wire Wire Line
 	1600 2550 1950 2550
 Connection ~ 1950 2550
+Wire Wire Line
+	5400 3650 5800 3650
+Wire Wire Line
+	5400 3750 5800 3750
+$Comp
+L Connector_Generic:Conn_01x05 J4
+U 1 1 5E330109
+P 2800 3650
+F 0 "J4" H 2950 3600 50  0000 L CNN
+F 1 "Conn_01x05" H 2950 3500 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 2800 3650 50  0001 C CNN
+F 3 "~" H 2800 3650 50  0001 C CNN
+	1    2800 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR07
+U 1 1 5E3326C0
+P 2550 3950
+F 0 "#PWR07" H 2550 3700 50  0001 C CNN
+F 1 "GND" H 2555 3777 50  0000 C CNN
+F 2 "" H 2550 3950 50  0001 C CNN
+F 3 "" H 2550 3950 50  0001 C CNN
+	1    2550 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 3850 2550 3850
+Wire Wire Line
+	2550 3850 2550 3950
+Wire Wire Line
+	2600 3450 2550 3450
+Wire Wire Line
+	2550 3450 2550 3250
+Text Label 2550 3350 0    50   ~ 0
++3V3
+Text Label 4150 2650 0    50   ~ 0
+NRST
+Wire Wire Line
+	2600 3550 2400 3550
+Wire Wire Line
+	2600 3650 2400 3650
+Wire Wire Line
+	2600 3750 2400 3750
+Text Label 5650 3650 0    50   ~ 0
+SWDIO
+Text Label 2400 3650 0    50   ~ 0
+SWDIO
+Text Label 2400 3550 0    50   ~ 0
+NRST
+Text Label 2400 3750 0    50   ~ 0
+SWCLK
+Text Label 5650 3750 0    50   ~ 0
+SWCLK
+$Comp
+L Connector_Generic:Conn_01x04 J3
+U 1 1 5E345962
+P 9350 3600
+F 0 "J3" H 9430 3592 50  0000 L CNN
+F 1 "Conn_01x04" H 9430 3501 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 9350 3600 50  0001 C CNN
+F 3 "~" H 9350 3600 50  0001 C CNN
+	1    9350 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9050 3050 9050 3500
+Wire Wire Line
+	9050 3500 9150 3500
+Text Label 1800 1950 0    50   ~ 0
+VCC
+$Comp
+L Device:R R3
+U 1 1 5E395E25
+P 5250 1950
+F 0 "R3" V 5043 1950 50  0000 C CNN
+F 1 "R" V 5134 1950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5180 1950 50  0001 C CNN
+F 3 "~" H 5250 1950 50  0001 C CNN
+	1    5250 1950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5E396085
+P 5250 2200
+F 0 "R4" V 5043 2200 50  0000 C CNN
+F 1 "R" V 5134 2200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5180 2200 50  0001 C CNN
+F 3 "~" H 5250 2200 50  0001 C CNN
+	1    5250 2200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5400 1950 5550 1950
+Wire Wire Line
+	5550 1950 5550 2000
+Connection ~ 5550 2000
+Wire Wire Line
+	4900 1950 5000 1950
+Wire Wire Line
+	5100 1950 5000 1950
+Wire Wire Line
+	5100 2200 5000 2200
+Connection ~ 5000 2200
+Wire Wire Line
+	5000 2200 5000 2450
+Wire Wire Line
+	5400 2200 5600 2200
+Connection ~ 5600 2200
 $EndSCHEMATC
